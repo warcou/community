@@ -1,8 +1,7 @@
 package com.dhc.community.constant;
 
-public interface KafkaConstant {
-    String TOPIC_COMMENT = "comment";
+public interface EventConstant {
     String TOPIC_LIKE = "like";
     String TOPIC_FOLLOW = "follow";
-    Integer SYSTEM_USER_ID = -1;
+    String TOPIC_COMMENT = "comment";
 }

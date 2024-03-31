@@ -59,6 +59,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.8.1
     container_name: elasticsearch
+    build: elasticsearch
     environment:
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
       - "http.host=0.0.0.0"

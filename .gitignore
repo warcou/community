@@ -33,5 +33,5 @@ build/
 .vscode/
 
 ### Elastic Data&Plugin ###
-.dev-ops/community-env/elasticsearch/data
-.dev-ops/community-env/elasticsearch/plugin
+./dev-ops/community-env/elasticsearch/data
+./dev-ops/community-env/elasticsearch/plugin

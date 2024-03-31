@@ -14,4 +14,19 @@ public class MessageServiceImpl implements MessageService {
     public Integer addSystemMessage(Message message) {
         return messageMapper.insertMessage(message)?message.getId():-1;
     }
+
+    @Override
+    public Message findLatestNotice(int userId, String topic) {
+        return messageMapper.selectLatestNotice(userId,topic);
+    }
+
+    @Override
+    public Integer findNoticeCount(int userId, String topic) {
+        return messageMapper.selectNoticeCount(userId,topic);
+    }
+
+    @Override
+    public Integer findNoticeUnreadCount(int userId, String topic) {
+        return messageMapper.selectNoticeUnreadCount(userId, topic);
+    }
 }

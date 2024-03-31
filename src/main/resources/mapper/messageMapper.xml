@@ -6,10 +6,37 @@
     <sql id="insertFields">
         (`from_id`,`to_id`,`conversation_id`,`created_at`,`content`)
     </sql>
+
+    <sql id="selectMessageStatement">
+        SELECT `id`,`from_id`,`to_id`,`conversation_id`,`created_at`,`content` FROM `message`
+    </sql>
     
     <insert id="insertMessage" parameterType="Message" keyProperty="id">
         INSERT INTO `message` <include refid="insertFields"></include>
         VALUES (#{fromId},#{toId},#{conversationId},#{createdAt},#{content})
     </insert>
+    <select id="selectLatestNotice" resultType="com.dhc.community.entity.Message">
+        <include refid="selectMessageStatement"></include>
+        WHERE `id` IN (
+            SELECT MAX(`id`) FROM `message`
+            WHERE   `from_id` = -1
+            AND     `to_id` = #{userId}
+            AND     `conversation_id` = #{topic}
+        )
+    </select>
+    <select id="selectNoticeCount" resultType="java.lang.Integer">
+        SELECT COUNT(`id`) FROM `message`
+        WHERE   `from_id` = -1
+          AND     `to_id` = #{userId}
+          AND     `conversation_id` = #{topic}
+    </select>
+    <select id="selectNoticeUnreadCount" resultType="java.lang.Integer">
+        SELECT COUNT(`id`) FROM `message`
+        WHERE   `from_id` = -1
+        AND     `to_id` = #{userId}
+        <if test="topic!=null">
+            AND     `conversation_id` = #{topic}
+        </if>
+    </select>
 
 </mapper>

@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.dhc.community.constant.KafkaConstant;
 import com.dhc.community.entity.event.LikeEvent;
 import com.dhc.community.entity.Message;
-import com.dhc.community.service.MessageService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

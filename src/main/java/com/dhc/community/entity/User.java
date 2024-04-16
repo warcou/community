@@ -1,12 +1,7 @@
 package com.dhc.community.entity;
 
-import lombok.Builder;
-import lombok.Data;
-
 import java.util.Date;
 
-@Data
-@Builder
 public class User {
     private int id;
     private String username;
@@ -27,10 +22,13 @@ public class User {
                 ", type=" + type +
                 ", status=" + status +
                 ", activationCode='" + activationCode + '\'' +
-                ", headUrl='" + headUrl + '\'' +
+                ", headUrl='" + headerUrl + '\'' +
                 ", createTime=" + createTime +
                 '}';
     }
+    private String activationCode;
+    private String headerUrl;
+    private Date createTime;
 
     public int getId() {
         return id;
@@ -96,12 +94,12 @@ public class User {
         this.activationCode = activationCode;
     }
 
-    public String getHeadUrl() {
-        return headUrl;
+    public String getHeaderUrl() {
+        return headerUrl;
     }
 
-    public void setHeadUrl(String headUrl) {
-        this.headUrl = headUrl;
+    public void setHeaderUrl(String headerUrl) {
+        this.headerUrl = headerUrl;
     }
 
     public Date getCreateTime() {
@@ -111,8 +109,4 @@ public class User {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
-    private String activationCode;
-    private String headUrl;
-    private Date createTime;
 }
